@@ -1,0 +1,263 @@
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+  <style type="text/css">
+    body {
+      background: #F9F9F9;
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #mapCanvas {
+      width: 700px;
+      height: 300px;
+    }
+    #infoPanel {
+
+    }
+    #infoPanel > div {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 2px dashed #CCC;
+    }
+
+    #header {
+      background: #ffffff;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid  #6ABD19;
+    }
+    .wrap {
+      width: 700px;
+      margin: 0 auto;
+    }
+    #email1 {
+      font-size: 16px;
+      padding: 4px 6px;
+
+    }
+    #s1 {
+      color: #FFF;
+      background:#6abd19 ;
+      border: 0;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #s1:hover {
+      background: #5AAD09;
+    }
+  </style>
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" > </script>
+  <script type= "text/javascript">
+
+    $(document).ready()
+    {
+      //console.log('ready');
+
+      var geocoder = new google.maps.Geocoder();
+
+      function geocodePosition(pos) {
+        geocoder.geocode({
+          latLng: pos
+        }, function(responses) {
+          if (responses && responses.length > 0) {
+            updateMarkerAddress(responses[0].formatted_address);
+          } else {
+            updateMarkerAddress('Cannot determine address at this location.');
+          }
+        });
+      }
+
+      function updateMarkerStatus(str) {
+        document.getElementById('markerStatus').innerHTML = str;
+      }
+
+      function updateMarkerPosition(latLng) {
+        document.getElementById('info').innerHTML = [
+        latLng.lat(),
+        latLng.lng()
+        ].join(', ');
+      }
+
+      function updateMarkerAddress(str) {
+        document.getElementById('address').innerHTML = str;
+      }
+
+      function initialize(latLng1,latLng2) {
+        var latLng = new google.maps.LatLng(latLng1,latLng2);
+        var map = new google.maps.Map(document.getElementById('mapCanvas'), {
+          zoom: 10,
+          center: latLng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+          position: latLng,
+          title: 'Point A',
+          map: map,
+          draggable: true
+        });
+
+      // Update current position info.
+      updateMarkerPosition(latLng);
+      geocodePosition(latLng);
+
+      // Add dragging event listeners.
+      google.maps.event.addListener(marker, 'dragstart', function() {
+        updateMarkerAddress('Dragging...');
+      });
+
+      google.maps.event.addListener(marker, 'drag', function() {
+        updateMarkerStatus('Dragging...');
+        updateMarkerPosition(marker.getPosition());
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function() {
+        updateMarkerStatus('Drag ended');
+        geocodePosition(marker.getPosition());
+      });
+
+      }
+
+
+
+      // Onload handler to fire off the app.
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      /*function validateForm()
+      {
+      var x = document.forms["myForm"]["email"].value;
+      var atpos = x.indexOf("@");
+      var dotpos = x.lastIndexOf(".");
+      if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length)
+      {
+      alert("Not a valid e-mail address");
+      return false;
+      //alert("ready");
+      }
+      } */
+
+      function validateForm()
+      {
+        var x = document.getElementById("email1").value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length)
+        {
+          alert("Not a valid e-mail address");
+          return false;
+        }
+
+
+      }
+
+
+      var myLink = document.getElementById("s1");
+      myLink.onclick = function(){
+        validateForm();
+        return false; }
+        alert("no error");
+
+      //connect to database
+      alert("no error1");
+      var http= require('http');
+      var mysql= require('mysql');
+      // Create a connection to MySql Server and Database
+      var connection = mysql.createConnection({
+        host : '127.0.0.1',
+        port : 3306,
+        database: 'nisha_test',
+        user : 'nisha',
+        password : 'pass'
+      });
+      alert("no error2");
+
+      }  //jquery
+      // ended
+
+    </script>
+  </head>
+  <body onload="initialize(12.96, 77.56)" >
+
+    <div id="header">
+      <div class="wrap">
+        <a href="http://zoomcar.in/?ref=CT_PUN_SU01" target="_blank"><img src="https://my.contactology.com/secure/images.skem1.com/client_id_20565/ZoomCar-02.png" border="0" width="200" height="63" style="max-width:100%"></a>
+      </div>
+    </div>
+    <div class="wrap">
+
+
+      <form action='/survey' method='POST'>
+
+
+          <div id="infoPanel" >
+          <div>
+            <b>Tell us your City:</b>
+            <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" /> <label for="Bangalore1">Banaglore</label>
+            <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)"/> <label for="Pune1">Pune</label>
+          </div>
+             <br/>
+          <!-- <div>
+                <b>What is your means of transportation ?</b><br/>
+                  <input type="radio" name="transport" id="transport4" value="Walk"> Walk </br>
+              <input type="radio" name="transport" id="transport1" value="Bus"> Bus </br>
+               <input type="radio" name="transport" id="transport2" value="Rikshaw"> Rikshaw<br/>
+                <input type="radio" name="transport" id="transport5" value="2 Wheeler"> 2 Wheeler<br/>
+               <input type="radio" name="transport" id="transport3" value="4 Wheeler"> 4 Wheeler
+
+
+           </div>
+                    <br/>  -->
+          <div id="infoPanel"><b>How far are you willing to commute to your pick up location:</b><br/>
+              <input type="radio" name="distance" id="distance" value="500meters"> 500 meters or less </br>
+               <input type="radio" name="distance" id="distance1" value="1 Km"> 1Km<br/>
+               <input type="radio" name="distance" id="distance2" value="1.5 Km"> 1.5Km or more
+
+        </div>
+
+     <div>
+     <b>Where would you Zoom most :</b>
+     <input type="radio" name="destination" id="locally1" value="locally">Within the City
+     <input type="radio" name="destination" id="outstation" value="outstation">Outside the City
+     </div>
+                <br/>
+
+
+          <div>
+            <b>Drag the marker to the location where you would like to see ZoomCar next:</b>  <br/>
+            <div id="markerStatus"><i>Click and drag the marker.</i></div>
+                  <br/>
+            <b>This where you would like to see ZoomCar:</b>
+            <div id="address"></div>
+            <input id="info" type="hidden" name="lat" />
+            <input id="info" type="hidden" name="lng" />
+            <br/>
+            <div id="mapCanvas"></div>
+                      </div>
+                      <br/>
+          <!-- <b>Current position:</b>
+          <div id="info"></div> -->
+
+          <div>
+            <b>Tell us your email address:</b>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email1">
+          <br />  <font size=1><i>We will let you know when a site opens near you<br/> Survey is limited to one response per email</i></font>
+          </div>
+          <br/>
+
+          <div align="center">
+            <input type="button" value="Submit" id="s1" onclick="validateForm();"/>
+          </div>
+
+            </div>
+
+
+      </form>
+    </div>
+  </body>
+</html>
