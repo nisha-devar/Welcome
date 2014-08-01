@@ -21,7 +21,7 @@
       height: 300px/* tablet, landscape iPad, lo-res laptops ands desktops */ }
   .wrap{
     width=700px;
-    margin: 0 auto;
+    margin:0 auto;
   }
 
 }
@@ -29,7 +29,7 @@
       background: #F9F9F9;
       font-family: Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 10px;
     }
 
     #infoPanel {
@@ -208,15 +208,14 @@
     </div>
     <div class="wrap">
 
-
       <form action='/survey' method='POST'>
 
 
           <div id="infoPanel" >
           <div>
             <b>Tell us your City:</b>
-            <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" /> <label for="Bangalore1">Banaglore</label>
-            <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)"/> <label for="Pune1">Pune</label>
+            <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" /> <label for="Bangalore1"> Banaglore</label>
+            <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)"/> <label for="Pune1"> Pune</label>
           </div>
              <br/>
           <!-- <div>
@@ -239,8 +238,8 @@
 
      <div>
      <b>Where would you Zoom most :</b>
-     <input type="radio" name="destination" id="locally1" value="locally" checked="checked" >Within the City
-     <input type="radio" name="destination" id="outstation" value="outstation">Outside the City
+     <input type="radio" name="destination" id="locally1" value="locally" checked="checked"> Within the City
+     <input type="radio" name="destination" id="outstation" value="outstation"> Outside the City
      </div>
                 <br/>
 
