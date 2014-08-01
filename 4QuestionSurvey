@@ -40,10 +40,7 @@
       margin-bottom: 20px;
       border-bottom: 2px solid  #6ABD19;
     }
-    .wrap {
-      width: 700px;
-      margin: 0 auto;
-    }
+  
     #email1 {
       font-size: 16px;
       padding: 4px 6px;
