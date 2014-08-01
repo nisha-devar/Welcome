@@ -1,9 +1,23 @@
 <html lang="en">
 <head>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen">
+
 
   <style type="text/css">
+
+@media (min-width:320px) {
+ width: 300px;
+      height: 150px
+}
+
+
+@media (min-width:801px) {
+  width: 700px;
+      height: 300px/* tablet, landscape iPad, lo-res laptops ands desktops */ }
+
+
+
     body {
       background: #F9F9F9;
       font-family: Helvetica, Arial, sans-serif;
