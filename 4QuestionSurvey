@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
@@ -152,7 +152,8 @@
           alert("Not a valid e-mail address");
           return false;
         }
-
+            //Thank you Page
+        //location.href = "Thankyou.htm";
 
       }
 
@@ -182,24 +183,28 @@
 
     </script>
   </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <body onload="initialize(12.96, 77.56)" >
 
     <div id="header">
-      <div class="wrap">
+      <div class="container">
         <a href="http://zoomcar.in/?ref=CT_PUN_SU01" target="_blank"><img src="https://my.contactology.com/secure/images.skem1.com/client_id_20565/ZoomCar-02.png" border="0" width="200" height="63" style="max-width:100%"></a>
       </div>
     </div>
     <div class="wrap">
+    <div class="form-group">
 
 
-      <form action='/survey' method='POST'>
+      <form action='/survey' method='POST' class="horizontal">
 
 
           <div id="infoPanel" >
-          <div>
+          <div class="col-xs-2">
             <b>Tell us your City:</b>
-            <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" /> <label for="Bangalore1">Banaglore</label>
-            <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)"/> <label for="Pune1">Pune</label>
+           <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" class="col-md-3 " /> <label for="Bangalore1">Banaglore</label>
+
+          <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)" class="col-md-3 " /> <label for="Pune1">Pune</label>
+
           </div>
              <br/>
           <!-- <div>
@@ -213,16 +218,16 @@
 
            </div>
                     <br/>  -->
-          <div id="infoPanel"><b>How far are you willing to commute to your pick up location:</b><br/>
-              <input type="radio" name="distance" id="distance" value="500meters"> 500 meters or less </br>
+          <div id="infoPanel" class="col-xs-2"><b>How far are you willing to commute to your pick up location:</b><br/>
+              <input type="radio" name="distance" id="distance" value="500meters" checked="checked"> 500 meters or less </br>
                <input type="radio" name="distance" id="distance1" value="1 Km"> 1Km<br/>
                <input type="radio" name="distance" id="distance2" value="1.5 Km"> 1.5Km or more
 
         </div>
 
-     <div>
+     <div class="col-xs-2">
      <b>Where would you Zoom most :</b>
-     <input type="radio" name="destination" id="locally1" value="locally">Within the City
+     <input type="radio" name="destination" id="locally1" value="locally" checked="checked" >Within the City
      <input type="radio" name="destination" id="outstation" value="outstation">Outside the City
      </div>
                 <br/>
@@ -245,19 +250,20 @@
 
           <div>
             <b>Tell us your email address:</b>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email1">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email1" class="form-control">
           <br />  <font size=1><i>We will let you know when a site opens near you<br/> Survey is limited to one response per email</i></font>
           </div>
           <br/>
 
           <div align="center">
-            <input type="button" value="Submit" id="s1" onclick="validateForm();"/>
+            <input type="button" value="Submit" id="s1" onclick="validateForm();" class="btn btn-primary" />
           </div>
 
             </div>
 
 
       </form>
+      </div>  <!--form group -->
     </div>
   </body>
 </html>
