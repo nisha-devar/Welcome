@@ -1,18 +1,18 @@
-<html lang="en">
+<html>
 <head>
-  <meta name="viewport" content="width=device-width" />
+ <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen">
-
 
   <style type="text/css">
 
-@media (min-width:320px) {
+
+  @media (min-width:320px) {
  #mapCanvas {width: 300px;
       height: 150px
  }
  .wrap{
    width:100%;
- 
+
  }
   }
 
@@ -23,18 +23,15 @@
     width=700px;
     margin: 0 auto;
   }
-  
+
 }
-
-
-
     body {
       background: #F9F9F9;
       font-family: Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
-   
+
     #infoPanel {
 
     }
@@ -50,7 +47,7 @@
       margin-bottom: 20px;
       border-bottom: 2px solid  #6ABD19;
     }
-    
+
     #email1 {
       font-size: 16px;
       padding: 4px 6px;
@@ -202,28 +199,24 @@
 
     </script>
   </head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <body onload="initialize(12.96, 77.56)" >
 
     <div id="header">
-      
+      <div class="wrap">
         <a href="http://zoomcar.in/?ref=CT_PUN_SU01" target="_blank"><img src="https://my.contactology.com/secure/images.skem1.com/client_id_20565/ZoomCar-02.png" border="0" width="200" height="63" style="max-width:100%"></a>
-      
+      </div>
     </div>
     <div class="wrap">
-    
 
 
-      <form action='/survey' method='POST' >
+      <form action='/survey' method='POST'>
 
 
           <div id="infoPanel" >
           <div>
             <b>Tell us your City:</b>
-           <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" /> <label for="Bangalore1">Banaglore</label>
-
-          <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)" /> <label for="Pune1">Pune</label>
-
+            <input type="radio" name="City" value="Bangalore" id="Bangalore1"  onclick="initialize(12.96, 77.56)" checked="checked" /> <label for="Bangalore1">Banaglore</label>
+            <input type="radio" name="City" value="Pune" id="Pune1" onclick="initialize(18.52, 73.85)"/> <label for="Pune1">Pune</label>
           </div>
              <br/>
           <!-- <div>
@@ -237,14 +230,14 @@
 
            </div>
                     <br/>  -->
-          <div id="infoPanel" "><b>How far are you willing to commute to your pick up location:</b><br/>
+          <div id="infoPanel"><b>How far are you willing to commute to your pick up location:</b><br/>
               <input type="radio" name="distance" id="distance" value="500meters" checked="checked"> 500 meters or less </br>
                <input type="radio" name="distance" id="distance1" value="1 Km"> 1Km<br/>
                <input type="radio" name="distance" id="distance2" value="1.5 Km"> 1.5Km or more
 
         </div>
 
-     <div >
+     <div>
      <b>Where would you Zoom most :</b>
      <input type="radio" name="destination" id="locally1" value="locally" checked="checked" >Within the City
      <input type="radio" name="destination" id="outstation" value="outstation">Outside the City
@@ -269,7 +262,7 @@
 
           <div>
             <b>Tell us your email address:</b>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email1" >
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email1">
           <br />  <font size=1><i>We will let you know when a site opens near you<br/> Survey is limited to one response per email</i></font>
           </div>
           <br/>
@@ -282,7 +275,6 @@
 
 
       </form>
-        <!--form group -->
     </div>
   </body>
 </html>
